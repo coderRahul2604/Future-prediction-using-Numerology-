@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Region Chart
+{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block contant %}
+<button id="filterBtn" class="btn btn-primary">Filter</button>
+<div id="filterDiv" class="filter" style="display: none; flex-direction: column; width: 50%; margin: auto;">
+  <div class="form-group">
+    <label for="end_yearFilter">Select End Year</label>
+    <select id="end_yearFilter" class="form-control">
+      <option></option>
+      {% for key, value in chart_data_end_year.items %}
+        <option>{{ key }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="sectorFilter">Select Sector</label>
+    <select id="sectorFilter" class="form-control">
+      <option></option>
+      {% for key, value in chart_data.items %}
+        <option>{{ key }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="topicFilter">Select Topic</label>
+    <select id="topicFilter" class="form-control">
+      <option></option>
+      {% for key, value in chart_data_topic.items %}
+        <option>{{ key }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="regionFilter">Select Region</label>
+    <select id="regionFilter" class="form-control">
+      <option></option>
+      {% for key, value in chart_data_region.items %}
+        <option>{{ key }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="sourceFilter">Select Source</label>
+    <select id="sourceFilter" class="form-control">
+      <option></option>
+      {% for key, value in chart_data_source.items %}
+        <option>{{ key }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="countryFilter">Select Country</label>
+    <select id="countryFilter" class="form-control">
+      <option></option>
+      {% for key, value in chart_data_country.items %}
+        <option>{{ key }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button id="applyFilter" class="btn btn-primary">Apply Filter</button>
+  <button id="closeBtn" class="btn btn-secondary">Close Filter</button>
+</div>
+
+  <canvas id="myChart"></canvas>
+{% endblock %}
+
+{% block script %}
+document.addEventListener('DOMContentLoaded', function() {
+  // Your JavaScript code here
+  document.getElementById('filterBtn').addEventListener('click', function () {
+      document.getElementById('filterDiv').style.display = 'flex';
+  });
+
+  // Close filter div when close button is clicked
+  document.getElementById('closeBtn').addEventListener('click', function () {
+      document.getElementById('filterDiv').style.display = 'none';
+  });
+var ctx = document.getElementById('myChart').getContext('2d');
+var chartDataInsights = JSON.parse('{{ insights_str|escapejs }}');
+var chartDataEndYear = JSON.parse('{{ chart_data_end_year_str|escapejs }}');
+var chartDataSector = JSON.parse('{{ chart_data_str|escapejs }}');
+var chartDataTopic = JSON.parse('{{ chart_data_topic_str|escapejs }}');
+var chartDataRegion = JSON.parse('{{ chart_data_region_str|escapejs }}');
+var chartDataSource = JSON.parse('{{ chart_data_source_str|escapejs }}');
+var chartDataCountry = JSON.parse('{{ chart_data_country_str|escapejs }}');
+
+var chart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+      labels: [],
+      datasets: [{
+          label: 'Region Count',
+          data: [],
+          backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+      }]
+  },
+  options: {
+      responsive: true,
+      plugins: {
+          legend: {
+              position: 'top',
+          },
+          title: {
+              display: true,
+              text: 'Region Distribution'
+          }
+      }
+  }
+});
+
+
+// Function to update the chart based on the selected filters
+function updateChart(selectedEndYear, selectedSector, selectedTopic, selectedRegion, selectedSource, selectedCountry) {
+    // Get the data for the selected filters
+    var filteredData = [];
+    if (selectedEndYear === '' && selectedSector === '' && selectedTopic === '' && selectedRegion === '' && selectedSource === '' && selectedCountry === '') {
+        // Show all data if no filters are selected
+        filteredData = chartDataInsights;
+    } else {
+        for (var i = 0; i < chartDataInsights.length; i++) {
+            var insightData = chartDataInsights[i];
+            if (
+                (selectedEndYear === '' || insightData['end_year'] === selectedEndYear) &&
+                (selectedSector === '' || insightData['sector'] === selectedSector) &&
+                (selectedTopic === '' || insightData['topic'] === selectedTopic) &&
+                (selectedRegion === '' || insightData['region'] === selectedRegion) &&
+                (selectedSource === '' || insightData['source'] === selectedSource) &&
+                (selectedCountry === '' || insightData['country'] === selectedCountry)
+            ) {
+                filteredData.push(insightData);
+            }
+        }
+    }
+
+    // Calculate the count of each region
+    var regionCount = {};
+    for (var i = 0; i < filteredData.length; i++) {
+        var region = filteredData[i]['region'];
+        regionCount[region] = (regionCount[region] || 0) + 1;
+    }
+
+    // Update the chart with the region count data
+    var labels = Object.keys(regionCount);
+    var data = Object.values(regionCount);
+
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = data;
+
+    chart.update();
+}
+
+
+
+// Initialize the chart with the first filters
+var firstEndYear = Object.keys(chartDataEndYear)[0];
+var firstSector = Object.keys(chartDataSector)[0];
+var firstTopic = Object.keys(chartDataTopic)[0];
+var firstRegion = Object.keys(chartDataRegion)[0];
+var firstSource = Object.keys(chartDataSource)[0];
+var firstCountry = Object.keys(chartDataCountry)[0];
+updateChart(firstEndYear, firstSector, firstTopic, firstRegion, firstSource, firstCountry);
+updateChart('', '', '', '', '', '');
+
+// Function to handle filter button click
+document.getElementById('applyFilter').addEventListener('click', function () {
+    var selectedEndYear = document.getElementById('end_yearFilter').value;
+    var selectedSector = document.getElementById('sectorFilter').value;
+    var selectedTopic = document.getElementById('topicFilter').value;
+    var selectedRegion = document.getElementById('regionFilter').value;
+    var selectedSource = document.getElementById('sourceFilter').value;
+    var selectedCountry = document.getElementById('countryFilter').value;
+    updateChart(selectedEndYear, selectedSector, selectedTopic, selectedRegion, selectedSource, selectedCountry);
+    document.getElementById('filterDiv').style.display = 'none';
+});
+});
+{% endblock %}
