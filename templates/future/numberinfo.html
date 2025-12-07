@@ -1,0 +1,1562 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{%block title%} Number information {%endblock%}
+
+{%block style%}
+
+    <link rel="stylesheet" href="{% static 'css/future/numberinfo.css'%}">
+
+{%endblock%}
+
+{%block content%}
+
+    <div class="main" style="padding: 10px;">
+        
+        <div class="preinfo" id="preinfo1" style="display: none;">
+            <h1>According to provided information</h1>
+            <p>Name: <span id="name1"></span></p>
+            <p>Birthdate: <span id="birthdate1"></span></p>
+            <p>Mulank: <span id="singleDigitDate1"></span></p>
+        </div>
+    
+        <div class="preinfo" id="preinfo2" style="display: none;">
+            <h1>According to provided information</h1>
+            <p>Name: <span id="name2"></span></p>
+            <p>Birthdate: <span id="birthdate2"></span></p>
+            <p>Bhagyank: <span id="singleCompleteDate2"></span></p>
+        </div> 
+    
+        <div class="preinfo" id="preinfo3" style="display: none;">
+            <h1>According to provided information</h1>
+            <p>Name: <span id="name3"></span></p>
+            <p>Birthdate: <span id="birthdate3"></span></p>
+            <p>Personal Year: <span id="singleCompleteDate3"></span></p>
+        </div>
+
+        <div class="main1div">
+            <div class="mulank1-9">
+        
+                {% if M == 'mulank' %}
+        
+                <strong> Personality Number</strong>
+                <p><strong> Mulank </strong>is believed to represent the core traits, characteristics, and tendencies of an
+                    individual. It
+                    provides insights into the individual's life purpose, strengths, and challenges.</p>
+        
+                <div class="mulank" id="mulank1" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 1 is ruled by SUN: </b>
+                            <span>King, Leadership Qualities, Egoistic</span>
+                        </p>
+                        <img src="{% static '/photo/Sun.jpg' %}" class="img" alt="error" style="width: 30%; ">
+                    </div>
+                    <h2>Your Traits as a Mulank 1 Individual:</h2>
+        
+                    <dl>Leadership and Initiative:</dl>
+                    <dd>You naturally possess leadership qualities and often find yourself taking the lead in various
+                        situations. Initiative comes naturally to you.</dd>
+        
+                    <dl>Independence:</dl>
+                    <dd>Independence is one of your defining traits. You value your autonomy and prefer making decisions on
+                        your own terms.</dd>
+        
+                    <dl>Ambition and Drive:</dl>
+                    <dd>The desire to achieve your goals is a driving force in your life. You have a competitive edge and
+                        are willing to put in the hard work to succeed.</dd>
+        
+                    <dl>Originality:</dl>
+                    <dd>Your unique perspective sets you apart. You're unafraid to express your individuality and bring
+                        fresh, original ideas to the table.</dd>
+        
+                    <dl>Confidence:</dl>
+                    <dd>Confidence exudes from you. This self-assuredness empowers you to pursue your aspirations and
+                        influence others positively.</dd>
+        
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+        
+                    <dl>Independent Yet Committed:</dl>
+                    <dd>In relationships, you maintain your independence while being committed to your partner. You value
+                        personal space and mutual understanding.</dd>
+        
+                    <dl>Assertive Communication:</dl>
+                    <dd>You're comfortable taking the lead in expressing your feelings and desires. Initiating conversations
+                        comes naturally to you.</dd>
+        
+                    <dl>Balance in Partnership:</dl>
+                    <dd>You're drawn to partners who share your drive and confidence. A balanced partnership built on mutual
+                        respect is important to you.</dd>
+        
+                    <dl>Navigating Challenges:</dl>
+                    <dd>Open communication is vital in relationships. Your assertiveness helps you navigate challenges with
+                        transparency and understanding.</dd>
+        
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+        
+                    <dl>Natural Leadership:</dl>
+                    <dd>You excel in roles that allow you to lead and make decisions. Your leadership skills drive projects
+                        and inspire teams.</dd>
+        
+                    <dl>Entrepreneurial Spirit:</dl>
+                    <dd>Ventures that let you pioneer and implement your original ideas suit you well. You thrive in
+                        innovative environments.</dd>
+        
+                    <dl>Assertive Advocate:</dl>
+                    <dd>Your assertiveness makes you effective in roles like sales, where you can convince and influence
+                        others.</dd>
+        
+                    <dl>Results-Driven:</dl>
+                    <dd>You're focused on achieving results and aren't afraid to put in the effort to meet your goals.</dd>
+        
+                    <dl>Independent Worker:</dl>
+                    <dd>While you can collaborate effectively, you're also comfortable working independently, trusting your
+                        instincts to guide you.</dd>
+        
+        
+                </div>
+                <div class="mulank" id="mulank2" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 2 is ruled by Moon: </b>
+                            <span>Queen, Emotions</span>
+                        </p>
+                        <img src="{% static '/photo/moon.jpg' %}" class="img" alt="error" style="width: 30%; ">
+                    </div>
+                    <h2>Your Traits as a Mulank 2 Individual:</h2>
+        
+                    <dl>Harmony and Diplomacy:</dl>
+                    <dd>You're naturally inclined towards creating harmony and balance in your surroundings. Diplomacy
+                        is a strong suit, and you often seek to mediate and mend situations.</dd>
+        
+                    <dl>Cooperation:</dl>
+                    <dd>Collaboration is important to you. You thrive when working with others and are skilled at
+                        navigating group dynamics.</dd>
+        
+                    <dl>Sensitivity:</dl>
+                    <dd>You're attuned to emotions and have a deep empathy for others. Your sensitivity makes you an
+                        excellent listener and a supportive friend.</dd>
+        
+                    <dl>Peacemaker:</dl>
+                    <dd>Your desire to maintain peace and avoid conflict guides your interactions. You're skilled at
+                        finding common ground among differing perspectives.</dd>
+        
+                    <dl>Intuitive Insight:</dl>
+                    <dd>Your intuition is strong, and you often rely on your gut feelings when making decisions.</dd>
+        
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+                    <dl>Emotional Connection:</dl>
+                    <dd>Emotional bonds are significant to you in relationships. You seek a partner who values emotional
+                        intimacy and open communication.</dd>
+        
+                    <dl>Partner in Harmony:</dl>
+                    <dd>You thrive in relationships where there's mutual respect and a sense of balance. You appreciate
+                        a partner who values cooperation.</dd>
+        
+                    <dl>Supportive and Nurturing:</dl>
+                    <dd>You're naturally caring and supportive, often taking on the role of a nurturer in your
+                        relationships.</dd>
+        
+                    <dl>Communication is Key:</dl>
+                    <dd>You excel in relationships where communication flows freely. Open dialogue helps you navigate
+                        challenges with understanding.</dd>
+        
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+                    <dl>Collaborative Environments:</dl>
+                    <dd>You thrive in workplaces that encourage teamwork and cooperation. You're skilled at fostering
+                        positive interactions among colleagues.</dd>
+        
+                    <dl>Mediator and Counselor Roles:</dl>
+                    <dd>Your ability to understand various viewpoints makes you effective in roles that involve
+                        mediating conflicts or offering guidance.</dd>
+        
+                    <dl>Creativity and Expression:</dl>
+                    <dd>Expressing your creative side through work is fulfilling for you. You have a knack for finding
+                        innovative solutions to problems.</dd>
+        
+                    <dl>Behind-the-Scenes Impact:</dl>
+                    <dd>While you're not always seeking the spotlight, your contributions have a significant impact on
+                        the overall success of projects.</dd>
+        
+                </div>
+                <div class="mulank" id="mulank3" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 3 is ruled by JUPITER: </b>
+                            <span>Guru, Minister, Counselor, Creative, Hungry of Knowledge</span>
+                        </p>
+                        <img src="{% static '/photo/jupiter.jpg' %}" class="img" alt="error" style="width: 30%; ">
+                    </div>
+                    <h2>Your Traits as a Mulank 3 Individual:</h2>
+        
+                    <dl>Creative Expression:</dl>
+                    <dd>You're naturally creative and have a flair for self-expression. Whether through art,
+                        communication, or ideas, you shine brightly in the realm of creativity.</dd>
+        
+                    <dl>Social Charisma:</dl>
+                    <dd>You have a magnetic personality that draws people in. Your social skills and charm make you an
+                        excellent communicator and connector.</dd>
+        
+                    <dl>Optimism and Enthusiasm:</dl>
+                    <dd>Your positive outlook on life is infectious. Your enthusiasm and optimism inspire those around
+                        you to see the bright side of things.</dd>
+        
+                    <dl>Curiosity and Exploration:</dl>
+                    <dd>You're curious by nature and enjoy exploring various interests. Your mind is always open to new
+                        ideas and experiences.</dd>
+        
+                    <dl>Versatility:</dl>
+                    <dd>Adaptability is your strength. You have the ability to thrive in diverse situations, thanks to
+                        your versatile and dynamic nature.</dd>
+        
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+        
+                    <dl>Charming Conversationalist:</dl>
+                    <dd>In relationships, your communication skills shine. Your charming conversations make you a
+                        delightful partner to be around.</dd>
+        
+                    <dl>Optimistic Partner:</dl>
+                    <dd>Your positivity radiates into your love life. You're an optimist who sees the potential for
+                        growth and happiness in every relationship.</dd>
+        
+                    <dl>Versatile Companion:</dl>
+                    <dd>Your versatile nature allows you to adapt and connect with a wide range of individuals, making
+                        you a great companion and friend.</dd>
+        
+                    <dl>Need for Freedom:</dl>
+                    <dd>You value your independence and appreciate partners who allow you the space to explore and
+                        express yourself.</dd>
+        
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+        
+                    <dl>Creative Pursuits:</dl>
+                    <dd>You're naturally drawn to careers that allow you to express your creativity. Writing,
+                        performing, art, and communication are areas where you excel.</dd>
+        
+                    <dl>Effective Communicator:</dl>
+                    <dd>Your communication skills set you apart. You have a way of conveying ideas that captivates your
+                        audience and gets your message across.</dd>
+        
+                    <dl>Team Collaboration:</dl>
+                    <dd>You thrive in collaborative environments. Your ability to connect with others and share ideas
+                        makes you an asset to any team.</dd>
+        
+                    <dl>Adaptable to Change:</dl>
+                    <dd>Your adaptable nature allows you to embrace change and thrive in evolving work situations.
+                        You're not afraid to try new things.</dd>
+        
+                </div>
+                <div class="mulank" id="mulank4" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 4 is ruled by RAHU</b>
+                            <span>Mischievous, Shadow of Sun, and Planner</span>
+                        </p>
+                        <img src="{% static '/photo/Rahu.jpg' %}" class="img" alt="error" style="width: 30%; height: 300px; ">
+                    </div>
+                    <h2>Your Traits as a Mulank 4 Individual:</h2>
+        
+                    <dl>
+                        <dl>Practicality and Stability:</dl>
+                        <dd>You naturally gravitate towards practical solutions and value stability in your life. Building a
+                            solid foundation is important to you.</dd>
+        
+                        <dl>Hard Work and Discipline:</dl>
+                        <dd>You have a strong work ethic and are willing to put in the effort required to achieve your
+                            goals. Discipline is a key driver of your success.</dd>
+        
+                        <dl>Organization:</dl>
+                        <dd>You thrive in organized environments. Creating structure and order helps you manage tasks
+                            effectively and reach your objectives.</dd>
+        
+                        <dl>Responsibility:</dl>
+                        <dd>You take your commitments seriously and are often relied upon by others for your reliability and
+                            sense of responsibility.</dd>
+        
+                        <dl>Patience:</dl>
+                        <dd>Patience is one of your virtues. You understand that success often takes time and are willing to
+                            wait for the right opportunities to come along.</dd>
+                    </dl>
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+                    <dl>
+                        <dl>Steadfast Partner:</dl>
+                        <dd>In relationships, you're committed and loyal. You value stability and seek a partner who shares
+                            your dedication to building a secure partnership.</dd>
+        
+                        <dl>Reliable Support:</dl>
+                        <dd>You're a reliable and dependable partner, always there to provide emotional support and
+                            practical assistance when needed.</dd>
+        
+                        <dl>Communication and Understanding:</dl>
+                        <dd>Open communication is crucial in relationships. You appreciate partners who share their thoughts
+                            and feelings openly, fostering mutual understanding.</dd>
+        
+                        <dl>Shared Goals:</dl>
+                        <dd>You're attracted to partners who align with your values and long-term goals, creating a sense of
+                            shared purpose in the relationship.</dd>
+                    </dl>
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+                    <dl>
+                        <dl>Methodical Approach:</dl>
+                        <dd>You excel in roles that require a systematic and methodical approach. Your ability to plan and
+                            execute tasks efficiently is an asset.</dd>
+        
+                        <dl>Detail-Oriented:</dl>
+                        <dd>Your attention to detail ensures that your work is thorough and accurate. This trait is valuable
+                            in roles that demand precision.</dd>
+        
+                        <dl>Management and Organization:</dl>
+                        <dd>Positions that involve managing projects, teams, or resources suit you well. You have a knack
+                            for organizing complex tasks.</dd>
+        
+                        <dl>Financial Roles:</dl>
+                        <dd>Your practical nature makes you well-suited for roles involving financial management, budgeting,
+                            and analysis.</dd>
+        
+                        <dl>Entrepreneurial Endeavors:</dl>
+                        <dd>If you choose an entrepreneurial path, your dedication to building a stable foundation can
+                            contribute to the long-term success of your venture.</dd>
+                    </dl>
+                </div>
+                <div class="mulank" id="mulank5" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 5 is ruled by MERCURY</b>
+                            <span>Prince, Accountant, Mental & Emotional Balance</span>
+                        </p>
+                        <img src="{% static '/photo/MERCURY.jpg' %}" class="img" alt="error"
+                            style="width: 30%; height: 300px; ">
+                    </div>
+                    <h2>Your Traits as a Mulank 5 Individual:</h2>
+        
+                    <dl>Adventurous Spirit:</dl>
+                    <dd>You have a natural inclination for adventure and exploration. You thrive on new experiences and
+                        are open to embracing change.</dd>
+        
+                    <dl>Curiosity and Versatility:</dl>
+                    <dd>Curiosity drives you to learn about a wide range of subjects. You're adaptable and versatile,
+                        capable of handling diverse situations.</dd>
+        
+                    <dl>Communication Skills:</dl>
+                    <dd>You excel in communication, whether it's expressing your ideas or connecting with people from
+                        various backgrounds.</dd>
+        
+                    <dl>Freedom and Independence:</dl>
+                    <dd>Freedom is paramount to you. You value your independence and are reluctant to be tied down by
+                        limitations.</dd>
+        
+                    <dl>Resourcefulness:</dl>
+                    <dd>Your ability to think on your feet and find innovative solutions is a notable trait. You're not
+                        afraid to take risks to achieve your goals.</dd>
+        
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+                    <dl>Excitement and Variety:</dl>
+                    <dd>In relationships, you seek excitement and variety. A partner who shares your zest for life and
+                        exploration is appealing to you.</dd>
+        
+                    <dl>Engaging Conversationalist:</dl>
+                    <dd>Your communication skills make you a captivating conversationalist. Meaningful discussions and
+                        shared interests are vital in relationships.</dd>
+        
+                    <dl>Need for Space:</dl>
+                    <dd>While you value connection, you also require personal space and freedom. A partner who
+                        understands this balance is ideal.</dd>
+        
+                    <dl>Adaptable Partner:</dl>
+                    <dd>You're drawn to partners who are adaptable and open-minded, ready to embark on new adventures
+                        alongside you.</dd>
+        
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+                    <dl>Versatile Work Roles:</dl>
+                    <dd>Your adaptability suits you for roles that require multitasking and embracing diverse
+                        challenges. You thrive in dynamic environments.</dd>
+        
+                    <dl>Entrepreneurial Ventures:</dl>
+                    <dd>Your risk-taking nature makes you well-suited for entrepreneurial endeavors. You're not afraid
+                        to take calculated risks.</dd>
+        
+                    <dl>Effective Communicator:</dl>
+                    <dd>Your excellent communication skills open doors to roles that involve negotiation, sales, or
+                        public relations.</dd>
+        
+                    <dl>Problem Solver:</dl>
+                    <dd>You're resourceful in finding creative solutions to problems. Your ability to adapt quickly
+                        helps you navigate various work scenarios.</dd>
+        
+                    <dl>Independent Work Setting:</dl>
+                    <dd>You're comfortable working independently and often shine when given the freedom to express your
+                        ideas and methods.</dd>
+        
+                </div>
+                <div class="mulank" id="mulank6" style="display: none;">
+        
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 6 is ruled by VENUS: </b>
+                            <span>Guru, Bad Minister, Strategy expert, Dancer, Luxury</span>
+                        </p>
+                        <img src="{% static '/photo/Shukra(Venus).jpg' %}" class="img" alt="error"
+                            style="width: 30%; height: 300px; ">
+                    </div>
+        
+                    <h2>Your Traits as a Mulank 6 Individual:</h2>
+        
+                    <dl>
+                        <dl>Harmony and Responsibility:</dl>
+                        <dd>Creating harmony in your surroundings is essential to you. You often take on responsibilities to
+                            ensure everyone's well-being and happiness.</dd>
+        
+                        <dl>Caring Nature:</dl>
+                        <dd>Your caring and nurturing side shine through. You're naturally attuned to the needs of others
+                            and readily offer your support.</dd>
+        
+                        <dl>Family-Centric:</dl>
+                        <dd>Family is a cornerstone of your life. You prioritize your loved ones and work to maintain strong
+                            connections with them.</dd>
+        
+                        <dl>Compassion:</dl>
+                        <dd>Compassion and empathy guide your interactions. You're quick to understand and offer comfort to
+                            those in need.</dd>
+        
+                        <dl>Service-Oriented:</dl>
+                        <dd>Service to others is important to you. You find fulfillment in helping and making a positive
+                            impact in people's lives.</dd>
+                    </dl>
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+                    <dl>
+                        <dl>Emotional Connection:</dl>
+                        <dd>Deep emotional bonds are the foundation of your relationships. You seek partners who value
+                            emotional intimacy and open communication.</dd>
+        
+                        <dl>Commitment and Loyalty:</dl>
+                        <dd>Once committed, you're dedicated and loyal. Your partner's well-being is a priority, and you're
+                            willing to put in the effort to nurture the relationship.</dd>
+        
+                        <dl>Supportive Partner:</dl>
+                        <dd>You're naturally supportive and nurturing. You often take on the role of a caregiver, providing
+                            comfort and understanding.</dd>
+        
+                        <dl>Open Communication:</dl>
+                        <dd>Communication is key for you. You thrive in relationships where there's open dialogue, enabling
+                            you to navigate challenges together.</dd>
+                    </dl>
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+                    <dl>
+                        <dl>Service-Focused Roles:</dl>
+                        <dd>You excel in careers where you can help others. Roles in healthcare, counseling, or social work
+                            align with your caring nature.</dd>
+        
+                        <dl>Team Collaboration:</dl>
+                        <dd>You enjoy working in collaborative environments. Your ability to foster positive interactions
+                            contributes to team cohesion.</dd>
+        
+                        <dl>Creative Expression:</dl>
+                        <dd>Expressing your creativity through your work is fulfilling. You have a knack for finding
+                            innovative solutions to problems.</dd>
+        
+                        <dl>Responsible Decision-Making:</dl>
+                        <dd>Responsibility guides your work decisions. You ensure that your actions benefit both individuals
+                            and the greater community.</dd>
+        
+                        <dl>Balancing Work and Family:</dl>
+                        <dd>Striking a balance between work and family is crucial. You value a supportive work environment
+                            that understands the importance of family commitments.</dd>
+                    </dl>
+                </div>
+                <div class="mulank" id="mulank7" style="display: none;">
+        
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 7 is ruled by KETU: </b>
+                            <span>Shadow of Moon, Secretive, Cheat-facer</span>
+                        </p>
+                        <img src="{% static '\photo\Ketu.jpg' %}" class="img" alt="error" style="width: 30%; height: 300px; ">
+                    </div>
+                    <h2>Your Traits as a Mulank 7 Individual:</h2>
+        
+                    <dl>Analytical Mind:</dl>
+                    <dd>Your mind is naturally inclined towards analysis and introspection. You seek to understand the
+                        deeper meaning behind things.</dd>
+        
+                    <dl>Introspection:</dl>
+                    <dd>You have a reflective nature and often spend time contemplating your thoughts and emotions.
+                        Inner exploration is a significant part of your journey.</dd>
+        
+                    <dl>Spiritual Awareness:</dl>
+                    <dd>You're drawn to matters of the spirit and have a keen interest in spiritual and philosophical
+                        topics.</dd>
+        
+                    <dl>Intellectual Curiosity:</dl>
+                    <dd>Your curiosity drives you to seek knowledge and understanding in a variety of subjects. Learning
+                        is a continuous pursuit for you.</dd>
+        
+                    <dl>Seeker of Truth:</dl>
+                    <dd>You're on a quest for truth and deeper understanding, both about the world around you and your
+                        own existence.</dd>
+        
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+                    <dl>Deep Emotional Bonds:</dl>
+                    <dd>Emotional depth is crucial to you in relationships. You seek a partner who can engage in
+                        profound conversations and share your inner journey.</dd>
+        
+                    <dl>Intellectual Connection:</dl>
+                    <dd>Mental stimulation is important to you. You appreciate a partner who can engage you in
+                        thoughtful discussions and share your interests.</dd>
+        
+                    <dl>Space for Individual Growth:</dl>
+                    <dd>While you value togetherness, you also need space for your personal growth and introspection. A
+                        partner who understands this balance is ideal.</dd>
+        
+                    <dl>Shared Spiritual Exploration:</dl>
+                    <dd>You're drawn to partners who share your interest in spiritual matters and philosophical
+                        discussions.</dd>
+        
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+                    <dl>Analytical Problem Solver:</dl>
+                    <dd>You excel in roles that require critical thinking and analysis. Your ability to see patterns and
+                        connections helps you solve complex problems.</dd>
+        
+                    <dl>Research and Investigation:</dl>
+                    <dd>Careers that involve research, investigation, and delving into details appeal to you. You enjoy
+                        uncovering hidden truths.</dd>
+        
+                    <dl>Teaching and Sharing Knowledge:</dl>
+                    <dd>Your interest in learning makes you an effective teacher or mentor, as you're eager to share
+                        your insights with others.</dd>
+        
+                    <dl>Creative Expression:</dl>
+                    <dd>Despite your analytical nature, you have a creative side that can find expression through
+                        writing, art, or other creative pursuits.</dd>
+        
+                    <dl>Independent Worker:</dl>
+                    <dd>You often thrive when given the autonomy to explore and analyze on your own. Independent
+                        projects suit your style.</dd>
+        
+                </div>
+                <div class="mulank" id="mulank8" style="display: none;">
+        
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 8 is ruled by SATURN: </b>
+                            <span>Judge, Servant, Struggle, Money Manager</span>
+                        </p>
+                        <img src="{% static '/photo/lord shani(SATURN).jpg' %}" class="img" alt="error"
+                            style="width: 40%; height: 300px; ">
+                    </div>
+                    <h2>Your Traits as a Mulank 8 Individual:</h2>
+        
+                    <dl>Power and Authority:</dl>
+                    <dd>You naturally gravitate towards positions of power and authority. Leadership roles suit you
+                        well, and you're comfortable taking charge.</dd>
+        
+                    <dl>Ambition and Drive:</dl>
+                    <dd>Your desire to achieve significant success is strong. You have a tenacious drive to overcome
+                        obstacles and reach your goals.</dd>
+        
+                    <dl>Financial Acumen:</dl>
+                    <dd>You have a knack for handling finances and making strategic investments. Money and material
+                        success are areas of focus for you.</dd>
+        
+                    <dl>Practicality:</dl>
+                    <dd>Practicality is a cornerstone of your personality. You approach challenges and decisions with a
+                        grounded and pragmatic mindset.</dd>
+        
+                    <dl>Resilience:</dl>
+                    <dd>You're remarkably resilient in the face of adversity. Challenges only motivate you to work
+                        harder and prove your capabilities.</dd>
+        
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+                    <dl>Dedication and Loyalty:</dl>
+                    <dd>You're committed and loyal in relationships. Once you invest your time and emotions, you're in
+                        it for the long haul.</dd>
+        
+                    <dl>Provider and Protector:</dl>
+                    <dd>You naturally take on the role of a provider and protector. Ensuring your partner's well-being
+                        and security is important to you.</dd>
+        
+                    <dl>Balancing Work and Love:</dl>
+                    <dd>Striking a balance between your ambitious pursuits and your relationships can be a challenge,
+                        but it's essential for harmony.</dd>
+        
+                    <dl>Shared Goals:</dl>
+                    <dd>You're drawn to partners who share your drive and ambition. Having common goals and aspirations
+                        is a significant factor for you.</dd>
+        
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+                    <dl>Leadership and Management:</dl>
+                    <dd>Leadership positions are a perfect fit for you. You excel in roles where you can guide and
+                        direct teams towards success.</dd>
+        
+                    <dl>Entrepreneurial Ventures:</dl>
+                    <dd>Your ambitious and strategic mindset makes you an excellent candidate for starting your own
+                        business and managing it effectively.</dd>
+        
+                    <dl>Financial and Investment Fields:</dl>
+                    <dd>With your financial acumen, roles in finance, investment, or business development can lead to
+                        significant success.</dd>
+        
+                    <dl>Results-Oriented:</dl>
+                    <dd>You're driven by results. You set high standards for yourself and your team, ensuring that
+                        objectives are met effectively.</dd>
+        
+                    <dl>Influence and Impact:</dl>
+                    <dd>You're motivated by making a substantial impact. Whether through your work or leadership, you
+                        aim to leave a lasting mark.</dd>
+        
+                </div>
+                <div class="mulank" id="mulank9" style="display: none;">
+        
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 9 is ruled by MARS: </b>
+                            <span> Commander, Humanity, Anger, Honorable old life </span>
+                        </p>
+                        <img src="{% static '/photo/mangala-deva(MARS ).webp' %}" class="img" alt="error"
+                            style="width: 35%; height: 300px; ">
+                    </div>
+        
+                    <h2>Your Traits as a Mulank 9 Individual:</h2>
+        
+                    <dl>Compassion and Empathy:</dl>
+                    <dd>Compassion flows through you, and you have a natural ability to empathize with others. You're
+                        often the one people turn to for understanding and support.</dd>
+        
+                    <dl>Humanitarian Spirit:</dl>
+                    <dd>You're drawn to making a positive impact on the world. Your desire to contribute to the greater
+                        good is a driving force in your life.</dd>
+        
+                    <dl>Philosophical Thinker:</dl>
+                    <dd>You possess a deep sense of wisdom and often contemplate the deeper meanings of life.
+                        Philosophical and spiritual pursuits resonate with you.</dd>
+        
+                    <dl>Completion and Transformation:</dl>
+                    <dd>You're comfortable with endings and transitions. You understand that closure is necessary for
+                        new beginnings and personal growth.</dd>
+        
+                    <dl>Creative Expression:</dl>
+                    <dd>Expressing yourself creatively is essential for you. Whether through art, writing, or other
+                        outlets, you find fulfillment in creative endeavors.</dd>
+        
+        
+                    <h2>Your Approach to Love and Relationships:</h2>
+        
+                    <dl>Empathetic Partner:</dl>
+                    <dd>In relationships, your empathy shines. You're attentive to your partner's emotions and needs,
+                        providing a supportive and understanding presence.</dd>
+        
+                    <dl>Idealistic Vision:</dl>
+                    <dd>You have a vision of a harmonious and compassionate relationship. You seek a partner who shares
+                        your ideals and values making a positive impact.</dd>
+        
+                    <dl>Depth and Connection:</dl>
+                    <dd>Emotional and intellectual depth matter to you. You're drawn to partners who engage in
+                        meaningful conversations and share your values.</dd>
+        
+                    <dl>Transformation Together:</dl>
+                    <dd>You view relationships as opportunities for growth and transformation. You and your partner
+                        evolve together through shared experiences.</dd>
+        
+        
+                    <h2>Your Career and Work Style:</h2>
+        
+                    <dl>Humanitarian Endeavors:</dl>
+                    <dd>You thrive in careers that allow you to make a positive impact on society. Working for
+                        nonprofits, social causes, or charitable organizations align with your values.</dd>
+        
+                    <dl>Creative Pursuits:</dl>
+                    <dd>Creative fields, such as arts, writing, or music, resonate with you. Your imagination and
+                        empathy fuel your creative expression.</dd>
+        
+                    <dl>Counseling and Healing:</dl>
+                    <dd>Roles that involve counseling, therapy, or healing attract you. Your empathetic nature and
+                        wisdom make you a source of guidance and comfort.</dd>
+        
+                    <dl>Advocacy and Activism:</dl>
+                    <dd>You're an advocate for change. Careers in advocacy or activism allow you to stand up for what
+                        you believe in and promote positive transformation.</dd>
+        
+                    <dl>Big Picture Thinker:</dl>
+                    <dd>You excel in roles that require a broad perspective and long-term vision. Your ability to see
+                        the larger picture guides your decision-making.</dd>
+        
+        
+                </div>
+                {% endif %}
+        
+            </div>
+        </div>
+
+        <div class="main2div"> 
+            <div class="Bhagyank1-9">
+        
+                {% if B == "bhagyank" %}
+        
+                <strong> Destiny(Life Path number) </strong>
+                <p><strong>Bhagyank </strong>is believed to represent the overall opportunities, experiences, and challenges
+                    that a person may encounter in their life journey.</p>
+        
+                <div class="bhagyank" id="bhagyank1" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 1 is ruled by SUN: </b>
+                            <span>King, Leadership Qualities, Egoistic</span>
+                        </p>
+                        <img src="{% static '/photo/Sun.jpg' %}" class="img" alt="error" style="width: 30%; ">
+                    </div>
+        
+                    <dl>Your Traits as a Bhagyank 1 Individual:</dl>
+                    <dd class="individual">
+                        Individuals with Life Path Number 1 are natural-born leaders. They possess strong leadership qualities,
+                        initiative, and a competitive edge. They are driven by a desire to achieve their goals and are not
+                        afraid to put
+                        in the hard work necessary for success. Independence is a defining trait, and they prefer making
+                        decisions on
+                        their own terms.
+                    </dd>
+        
+                    <dl>Career/Work: Natural Leadership, Entrepreneurial Spirit, Assertive Advocate, Results-Driven</dl>
+                    <dd class="career">
+                        In the workplace, individuals with Life Path Number 1 excel in roles that allow them to lead and make
+                        decisions.
+                        Their entrepreneurial spirit makes them well-suited for ventures that let them pioneer and implement
+                        their
+                        original ideas. They are effective advocates, particularly in roles like sales, and they are focused on
+                        achieving tangible results. While they can collaborate effectively, they are also comfortable working
+                        independently, trusting their instincts to guide them.
+                    </dd>
+        
+                    <dl>Love Life: Independent Yet Committed, Assertive Communication, Balance in Partnership, Navigating
+                        Challenges
+                    </dl>
+                    <dd class="loveLife">
+                        In relationships, those with Life Path Number 1 maintain their independence while being committed to
+                        their
+                        partners. They are comfortable taking the lead in expressing their feelings and desires, and they value
+                        personal
+                        space and mutual understanding. A balanced partnership built on respect is crucial, and they navigate
+                        challenges
+                        with assertiveness and transparency.
+                    </dd>
+        
+        
+                </div>
+        
+                <div class="bhagyank" id="bhagyank2" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 2 is ruled by Moon: </b>
+                            <span>Queen, Emotions</span>
+                        </p>
+                        <img src="{% static '/photo/moon.jpg' %}" class="img" alt="error" style="width: 30%; ">
+                    </div>
+        
+                    <dl>Your Traits as a Bhagyank 2 Individual:</dl>
+                    <dd class="individual">
+                        Individuals with Life Path Number 2 are known for their cooperative and diplomatic nature. They thrive
+                        in
+                        situations that require teamwork and collaboration. Sensitivity is a defining trait, and they excel at
+                        creating
+                        harmonious environments.
+                    </dd>
+        
+                    <dl>Career/Work: Cooperation, Effective Team Player, Collaborative Roles</dl>
+                    <dd class="career">
+                        In the workplace, individuals with Life Path Number 2 excel as effective team players. They are
+                        cooperative and
+                        thrive in roles that require collaboration with others. Known for their diplomatic communication, they
+                        are often
+                        valued for their ability to navigate workplace dynamics harmoniously. They prefer roles that involve
+                        collaboration and working with others to achieve common goals.
+                    </dd>
+        
+                    <dl>Love Life: Balanced Partnership, Values Personal Space, Diplomatic Communicator</dl>
+                    <dd class="loveLife">
+        
+                        In relationships, those with Life Path Number 2 seek a balanced partnership built on mutual respect.
+                        They value
+                        personal space and understand the importance of maintaining a harmonious connection. Their diplomatic
+                        communication style makes them comfortable initiating conversations and expressing their feelings in a
+                        way that
+                        fosters understanding.
+                    </dd>
+        
+        
+                </div>
+        
+                <div class="bhagyank" id="bhagyank3" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 3 is ruled by JUPITER: </b>
+                            <span>Guru, Minister, Counselor, Creative, Hungry of Knowledge</span>
+                        </p>
+                        <img src="{% static '/photo/jupiter.jpg' %}" class="img" alt="error" style="width: 30%; ">
+                    </div>
+        
+                    <dl>Your Traits as a Bhagyank 3 Individual:</dl>
+                    <dd class="individual">
+                        Individuals with Life Path Number 3 are known for their creative and expressive nature. They thrive in
+                        environments that allow them to showcase their artistic abilities and communicate effectively.
+                    </dd>
+        
+                    <dl>Career/Work: Creative Roles, Effective Communicator, Innovative Thinker</dl>
+                    <dd class="career">
+                        In the workplace, individuals with Life Path Number 3 excel in creative and expressive roles. They are
+                        effective
+                        communicators, bringing enthusiasm to projects and teams. Their innovative thinking allows them to
+                        contribute
+                        fresh and original ideas, making them valuable assets in innovative environments.
+                    </dd>
+        
+                    <dl>Love Life: Expressive Partner, Positive Outlook, Supportive Communicator</dl>
+                    <dd class="loveLife">
+        
+                        In relationships, those with Life Path Number 3 value expressing feelings and creativity. They bring a
+                        positive
+                        outlook to the relationship, enjoying fun and creativity. Their enthusiastic and supportive
+                        communication style
+                        makes them effective partners who initiate conversations with warmth and positivity.
+                    </dd>
+                </div>
+        
+                <div class="bhagyank" id="bhagyank4" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 4 is ruled by RAHU</b>
+                            <span>Mischievous, Shadow of Sun, and Planner</span>
+                        </p>
+                        <img src="{% static '/photo/Rahu.jpg' %}" class="img" alt="error" style="width: 30%; height: 300px; ">
+                    </div>
+                    <dl>Your Traits as a Bhagyank 4 Individual:</dl>
+                    <dd class="individual">
+                        Individuals with Life Path Number 4 are characterized by their practical and disciplined nature. They
+                        excel in situations that require structure and stability. Hard work and reliability are defining traits,
+                        making them dependable individuals.
+                    </dd>
+        
+                    <dl>Career/Work: Organization, Reliable Worker, Stable Environments</dl>
+                    <dd class="career">
+                        In the workplace, individuals with Life Path Number 4 shine in roles that require organization and
+                        structure. They are reliable workers known for their discipline and commitment to tasks. They prefer
+                        stable and structured work environments where they can thrive and contribute consistently.
+                    </dd>
+        
+                    <dl>Love Life: Values Stability, Practical Approach, Resistant to Change</dl>
+                    <dd class="loveLife">
+        
+                        In relationships, those with Life Path Number 4 value stability and commitment. They approach
+                        relationships with a practical mindset, seeking a sense of security. However, they may resist changes in
+                        the relationship status quo and prefer a stable and consistent partnership.
+                    </dd>
+                </div>
+        
+                <div class="bhagyank" id="bhagyank5" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 5 is ruled by MERCURY</b>
+                            <span>Prince, Accountant, Mental & Emotional Balance</span>
+                        </p>
+                        <img src="{% static '/photo/MERCURY.jpg' %}" class="img" alt="error"
+                            style="width: 30%; height: 300px; ">
+                    </div>
+                    <dl>Your Traits as a Bhagyank 5 Individual:</dl>
+                    <dd class="individual">
+                        Individuals with Life Path Number 5 highly value their freedom and independence in relationships.
+                        They seek variety and excitement, making them open to new experiences.
+                        An adaptable partner who appreciates spontaneity is often a good match.
+                    </dd>
+        
+                    <dl>Career/Work: Dynamic Work Environments, Adaptable, Versatile Skills</dl>
+                    <dd class="career">
+                        Thrives in dynamic and flexible work environments that provide variety.
+                        Adaptable and comfortable with change, making them effective in roles that require flexibility.
+                        Possesses versatile skills and enjoys exploring different fields.
+                    </dd>
+        
+                    <dl>Love Life: Values Freedom, Seeks Variety and Excitement, Adaptable Partner</dl>
+                    <dd class="loveLife">
+        
+                        Individuals with Life Path Number 5 highly value their freedom and independence in relationships.
+                        They seek variety and excitement, making them open to new experiences.
+                        An adaptable partner who appreciates spontaneity is often a good match.
+                    </dd>
+        
+                    <dl>Challenges</dl>
+                    <dd class="loveLife">
+        
+                        May struggle with commitment and can be impulsive in decision-making.
+                        The desire for variety might lead to restlessness in long-term commitments.
+                    </dd>
+        
+                </div>
+        
+                <div class="bhagyank" id="bhagyank6" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 6 is ruled by VENUS: </b>
+                            <span>Guru, Bad Minister, Strategy expert, Dancer, Luxury</span>
+                        </p>
+                        <img src="{% static '/photo/Shukra(Venus).jpg' %}" class="img" alt="error"
+                            style="width: 30%; height: 300px; ">
+                    </div>
+        
+                    <dl>Your Traits as a Bhagyank 6 Individual:</dl>
+                    <dd class="individual">
+                        Individuals with Life Path Number 6 are known for their caring and responsible nature. They have a
+                        strong sense of duty and often find fulfillment in taking care of others, especially their loved ones.
+                        Compassion and nurturing are key traits that define them.
+                    </dd>
+        
+                    <dl>Career/Work: Caregiving Roles, Team Player, Contributes to Well-being</dl>
+                    <dd class="career">
+                        In the workplace, individuals with Life Path Number 6 thrive in roles that involve caregiving or service
+                        to others. They are effective team players with a nurturing leadership style, contributing to the
+                        overall well-being of the team. They often find fulfillment in work that allows them to make a positive
+                        impact on others' lives.
+                    </dd>
+        
+                    <dl>Love Life: Values Stability, Nurturing Partner, Harmony in Relationships</dl>
+                    <dd class="loveLife">
+        
+                        In relationships, those with Life Path Number 6 value stability and are committed to building a secure
+                        and loving family. They take on the role of a nurturing partner, often providing care and support to
+                        their loved ones. Seeking harmony and balance in relationships is important to them, and they are
+                        dedicated to maintaining commitment.
+                    </dd>
+        
+                </div>
+        
+                <div class="bhagyank" id="bhagyank7" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 7 is ruled by KETU: </b>
+                            <span>Shadow of Moon, Secretive, Cheat-facer</span>
+                        </p>
+                        <img src="{% static '\photo\Ketu.jpg' %}" class="img" alt="error" style="width: 30%; height: 300px; ">
+                    </div>
+        
+                    <dl>Your Traits as a Bhagyank 7 Individual:</dl>
+        
+                    <dd class="individual">
+                        Individuals with Life Path Number 7 are known for their analytical, introspective, and spiritual nature.
+                        They possess a deep desire for understanding and seek meaningful connections in various aspects of life.
+                    </dd>
+        
+                    <dl>Career/Work: Analytical Roles, Intuitive Problem Solver, Meaningful Work</dl>
+                    <dd class="career">
+                        In the workplace, individuals with Life Path Number 7 excel in roles that require analysis and
+                        intuition. They are effective in analytical and research-based positions, and their intuitive
+                        problem-solving abilities make them valuable contributors. They may find success in scientific or
+                        spiritual fields where their thoughtful and perceptive nature can shine.
+                    </dd>
+        
+                    <dl>Love Life: Values Deep Connections, Introspective, Spiritual Harmony</dl>
+                    <dd class="loveLife">
+        
+                        In relationships, those with Life Path Number 7 value deep connections. They may be introspective when
+                        it comes to matters of the heart, taking the time to understand the emotional and spiritual aspects of
+                        their relationships. Seeking a partner who shares similar spiritual interests and values is often
+                        important to them.
+                    </dd>
+                </div>
+
+                <div class="bhagyank" id="bhagyank8" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 8 is ruled by SATURN: </b>
+                            <span>Judge, Servant, Struggle, Money Manager</span>
+                        </p>
+                        <img src="{% static '/photo/lord shani(SATURN).jpg' %}" class="img" alt="error"
+                            style="width: 40%; height: 300px; ">
+                    </div>
+        
+                    <dl>Your Traits as a Bhagyank 8 Individual:</dl>
+                    <dd class="individual">
+                        Individuals with Life Path Number 8 are characterized by their ambition, authority, and financial
+                        mastery. They are often seen as business-minded individuals with strong leadership skills.
+                    </dd>
+        
+                    <dl>Career/Work: Natural Leadership, Entrepreneurial Spirit, Results-Driven, Effective in Sales</dl>
+                    <dd class="career">
+                        Life Path 8 individuals excel in leadership and executive roles where they can exercise authority and
+                        make significant decisions.
+                        Their entrepreneurial spirit makes them well-suited for ventures that involve financial mastery and
+                        strategic planning.
+                        Results-driven, they are focused on achieving tangible success and are willing to put in the effort
+                        required to meet their goals.
+                        Their assertive and persuasive communication skills make them effective in roles like sales.
+                    </dd>
+        
+                    <dl>Love Life: Values Success, Seeks Ambitious Partner, Balances Work and Love, May Need Independence</dl>
+                    <dd class="loveLife">
+        
+                        Life Path 8 individuals value success and may seek a partner who shares similar ambitions.
+                        They are attracted to partners with ambition and drive, appreciating a shared commitment to success.
+                        Balancing work and love life is important, and they strive for a partnership built on mutual respect and
+                        understanding.
+                        While valuing partnership, they may also appreciate personal space and independence.
+                    </dd>
+                </div>
+        
+                <div class="bhagyank" id="bhagyank9" style="display: none;">
+                    <div class="textimg" style=" width:100%; height: 300px;">
+                        <p class="text">
+                            <b>Number 9 is ruled by MARS: </b>
+                            <span> Commander, Humanity, Anger, Honorable old life </span>
+                        </p>
+                        <img src="{% static '/photo/mangala-deva(MARS ).webp' %}" class="img" alt="error"
+                            style="width: 35%; height: 300px; ">
+                    </div>
+        
+                    <dl>Your Traits as a Bhagyank 9 Individual:</dl>
+                    <dd class="individual">
+                        Individuals with Life Path Number 9 are characterized by their compassionate and idealistic nature. They
+                        have a strong sense of empathy and a desire to make a positive impact on the world. Generosity and
+                        broad-mindedness are defining traits, and they often find fulfillment in helping others.
+                    </dd>
+        
+                    <dl>Career/Work: Humanitarian Efforts, Compassionate Leader, Creative or Service-Oriented Careers</dl>
+                    <dd class="career">
+        
+                        In the workplace, individuals with Life Path Number 9 excel in roles that involve humanitarian efforts
+                        and service to others. They are compassionate leaders who seek meaningful work that contributes to the
+                        well-being of society. Creative or service-oriented careers align well with their values, and they are
+                        driven by a desire to make a positive impact.
+                    </dd>
+        
+                    <dl>Love Life: Values Compassion, Empathetic Partner, Idealistic Approach</dl>
+                    <dd class="loveLife">
+        
+                        In relationships, those with Life Path Number 9 value compassion and seek a deeper connection. They are
+                        naturally empathetic partners who understand the emotions of those around them. While their approach to
+                        love is idealistic, they bring a sense of warmth and understanding to their relationships.
+                    </dd>
+                </div>
+                {% endif %}
+        
+            </div>
+        </div>
+
+        <div class="main3div">
+            <div class="personalYear">
+
+                <div class="year" id="personalYear1" style="display: none;">
+                    <h2>Personal Year 1:</h2>
+                    <p>This is a year of new beginnings, independence, and creativity. It's a good time to start new projects or ventures.</p>
+                    <dl>
+                        <dt>New Opportunities:</dt>
+                        <dd>Personal Year 1 is often associated with new opportunities and possibilities. It's a time to step out of your comfort zone and embrace change.</dd>
+                        
+                        <dt>Independence:</dt>
+                        <dd>This year encourages you to assert your independence and take the lead in your life. It's a good time to focus on your goals and pursue your passions.</dd>
+                        
+                        <dt>Self-Discovery:</dt>
+                        <dd>Personal Year 1 is a time of self-discovery and self-awareness. You may find yourself questioning your beliefs and values, and seeking a deeper understanding of who you are.</dd>
+                        
+                        <dt>Creativity:</dt>
+                        <dd>This year is often conducive to creativity and innovation. It's a good time to explore new ideas and express yourself in creative ways.</dd>
+                        
+                        <dt>Initiative:</dt>
+                        <dd>Personal Year 1 encourages you to take initiative and be proactive in pursuing your goals. It's a time to take charge of your life and make things happen.</dd>
+                        
+                        <dt>Courage:</dt>
+                        <dd>This year may require courage and determination as you navigate new beginnings and challenges. It's important to believe in yourself and your abilities.</dd>
+                        
+                        <dt>Focus on the Self:</dt>
+                        <dd>Personal Year 1 is a time to focus on yourself and your own needs. It's a good time to prioritize self-care and personal growth.</dd>
+                        
+                        <dt>Setting the Stage:</dt>
+                        <dd>Personal Year 1 sets the stage for the rest of the nine-year cycle. The decisions and actions you take during this year can have a significant impact on your future.</dd>
+                    </dl>
+                </div>
+
+                <div class="year" id="personalYear2" style="display: none;">
+                    <h2>Personal Year 2:</h2>
+                    <p>This is a year of cooperation, relationships, and patience. It's a time to focus on partnerships and diplomacy.</p>
+                    <dl>
+                        <dt>Relationships:</dt>
+                        <dd>During a 2 year, relationships of all kinds—romantic, familial, professional—take on added importance. You may feel more inclined to seek harmony and peace in your interactions, and you may find yourself more empathetic and understanding towards others.</dd>
+                        
+                        <dt>Cooperation:</dt>
+                        <dd>This year emphasizes collaboration and teamwork. You may find that you achieve more when you work with others towards a common goal. Diplomacy and compromise are key skills during this time.</dd>
+                        
+                        <dt>Patience:</dt>
+                        <dd>Personal Year 2 often teaches the value of patience. It may feel like progress is slower than usual, but this is a time to trust the process and allow things to unfold in their own time. Rushing or pushing too hard can lead to frustration.</dd>
+                        
+                        <dt>Intuition:</dt>
+                        <dd>Your intuition and sensitivity are heightened during a 2 year. Pay attention to your gut feelings and inner guidance, as they can lead you towards the right decisions and paths.</dd>
+                        
+                        <dt>Balance:</dt>
+                        <dd>Finding balance between your own needs and the needs of others is important in a 2 year. Avoiding extremes and seeking compromise can help you navigate this time with grace.</dd>
+                        
+                        <dt>Emotional Growth:</dt>
+                        <dd>Personal Year 2 is a time of emotional growth and maturity. You may find yourself more introspective and focused on personal development, particularly in relation to your emotional well-being.</dd>
+                        
+                        <dt>Creativity:</dt>
+                        <dd>This is a good year for exploring your creative side. Whether through art, music, writing, or other forms of expression, tapping into your creativity can be fulfilling and therapeutic.</dd>
+                    </dl>
+                </div>
+
+                <div class="year" id="personalYear3" style="display: none;">
+                    <h2>Personal Year 3:</h2>
+                    <p>This is a year of creativity, self-expression, and social activities. It's a good time to pursue artistic endeavors or travel.</p>
+                    <dl>
+                        <dt>Creativity:</dt>
+                        <dd>Personal Year 3 is an excellent time to explore your creative side. Whether you're an artist, writer, musician, or simply enjoy creative hobbies, this year encourages you to express yourself creatively and explore new artistic pursuits.</dd>
+                        
+                        <dt>Communication:</dt>
+                        <dd>This is a year of enhanced communication skills. You may find yourself more eloquent, persuasive, and able to express your ideas and feelings effectively. It's a good time to share your thoughts with others and engage in meaningful conversations.</dd>
+                        
+                        <dt>Socialization:</dt>
+                        <dd>Personal Year 3 is a social year, where you may feel more sociable and outgoing. It's a good time to expand your social circle, make new friends, and enjoy social activities and gatherings.</dd>
+                        
+                        <dt>Optimism:</dt>
+                        <dd>This year is often marked by a sense of optimism and positivity. You may feel more hopeful about the future and more willing to take risks and try new things.</dd>
+                        
+                        <dt>Expansion:</dt>
+                        <dd>Personal Year 3 is a year of growth and expansion. You may experience personal growth, both in terms of your skills and talents and in your personal relationships and social connections.</dd>
+                        
+                        <dt>Joy and Celebration:</dt>
+                        <dd>This year is often associated with joy, laughter, and celebration. It's a time to enjoy life and have fun, so don't be afraid to indulge in activities that bring you happiness and pleasure.</dd>
+                        
+                        <dt>Challenges:</dt>
+                        <dd>While Personal Year 3 is generally a positive and uplifting year, it's important to be aware of potential challenges. You may need to guard against scattering your energies or being too superficial in your pursuits. It's also important to balance your social activities with periods of introspection and self-reflection.</dd>
+                    </dl>
+                </div>
+
+                <div class="year" id="personalYear4" style="display: none;">
+                    <h2>Personal Year 4:</h2>
+                    <p>This is a year of hard work, discipline, and stability. It's a time to focus on building a solid foundation for the future.</p>
+                    <dl>
+                        <dt>Hard Work:</dt>
+                        <dd>Personal Year 4 often brings a heavier workload or a need to focus on responsibilities. It is a time to buckle down and put in the effort required to achieve your goals.</dd>
+                        
+                        <dt>Discipline:</dt>
+                        <dd>This year requires discipline and organization. It is important to stay focused on your priorities and avoid distractions that could derail your progress.</dd>
+                        
+                        <dt>Stability:</dt>
+                        <dd>Personal Year 4 is about building stability in all areas of your life. This could involve creating a budget, establishing a routine, or setting boundaries in your relationships.</dd>
+                        
+                        <dt>Practicality:</dt>
+                        <dd>This is a year for practical thinking and careful planning. It may be necessary to make decisions based on logic rather than emotion.</dd>
+                        
+                        <dt>Security:</dt>
+                        <dd>Personal Year 4 encourages you to create a sense of security for yourself and your loved ones. This could involve saving money, investing in your future, or making your home a more secure and comfortable place.</dd>
+                        
+                        <dt>Patience:</dt>
+                        <dd>Personal Year 4 may test your patience, as progress may be slower than you would like. It is important to trust the process and stay committed to your goals.</dd>
+                        
+                        <dt>Building a Foundation:</dt>
+                        <dd>Ultimately, Personal Year 4 is about laying a solid foundation for the future. By putting in the work and making smart choices, you can set yourself up for success in the years to come.</dd>
+                    </dl>
+                </div>
+
+                <div class="year" id="personalYear5" style="display: none;">
+                    <h2>Personal Year 5:</h2>
+                    <p>This is a year of change, freedom, and adventure. It's a good time to embrace new experiences and take risks.</p>
+                    <dl>
+                        <dt>Change and Adaptability:</dt>
+                        <dd>This year is marked by change, and you may find yourself experiencing unexpected shifts in various areas of your life. It's important to stay flexible and adapt to these changes as they arise.</dd>
+                        
+                        <dt>Freedom and Independence:</dt>
+                        <dd>Personal Year 5 is a time to embrace your independence and freedom. You may feel a strong desire to break free from limitations and explore new possibilities.</dd>
+                        
+                        <dt>Adventure and Excitement:</dt>
+                        <dd>This is a year for adventure and new experiences. You may feel a sense of restlessness and a desire to try new things and take risks.</dd>
+                        
+                        <dt>Social and Networking Opportunities:</dt>
+                        <dd>Personal Year 5 is a great time for socializing and networking. You may meet new and interesting people who can have a positive impact on your life.</dd>
+                        
+                        <dt>Unpredictability:</dt>
+                        <dd>Due to the nature of this year's energy, things may not always go as planned. It's important to stay open-minded and embrace the unexpected.</dd>
+                        
+                        <dt>Flexibility and Versatility:</dt>
+                        <dd>This is a year to be flexible and adaptable. Embrace change and see it as an opportunity for growth and expansion.</dd>
+                        
+                        <dt>Balance and Moderation:</dt>
+                        <dd>While it's important to embrace change and adventure, it's also important to maintain a sense of balance and moderation. Avoid impulsive decisions and take time to reflect on your actions.</dd>
+                        
+                        <dt>Creativity and Innovation:</dt>
+                        <dd>Personal Year 5 is a great time to tap into your creative side and explore new ways of thinking and doing things.</dd>
+                    </dl>
+                </div>
+
+                <div class="year" id="personalYear6" style="display: none;">
+                    <h2>Personal Year 6:</h2>
+                    <p>This is a year of harmony, family, and responsibility. It's a time to focus on your home life and relationships.</p>
+                    <dl>
+                        <dt>Family and Home Life:</dt>
+                        <dd>During a 6 Personal Year, there's often an emphasis on family matters. You may find yourself spending more time with family members, resolving conflicts, or making important decisions related to your home or living situation.</dd>
+                        
+                        <dt>Responsibility and Service:</dt>
+                        <dd>This year is also about taking on responsibilities and serving others. You may find yourself in a caregiving role, either within your family or in your community. It's a time where your focus shifts towards helping and supporting others.</dd>
+                        
+                        <dt>Harmony and Balance:</dt>
+                        <dd>Personal Year 6 is a good time to work on creating harmony and balance in your life. This may involve finding ways to balance your personal and professional life, as well as seeking harmony in your relationships.</dd>
+                        
+                        <dt>Creativity and Beauty:</dt>
+                        <dd>This year can also be a time for creativity and appreciating beauty. You may find yourself drawn to art, music, or other creative pursuits that bring joy and beauty into your life.</dd>
+                        
+                        <dt>Health and Well-being:</dt>
+                        <dd>Since Personal Year 6 is about nurturing and caring, it's also a good time to focus on your health and well-being. Pay attention to your physical, emotional, and mental health, and make self-care a priority.</dd>
+                        
+                        <dt>Relationships:</dt>
+                        <dd>Relationships, especially with family members and close friends, are highlighted during a 6 Personal Year. It's a good time to strengthen bonds and resolve conflicts, fostering deeper connections with those you care about.</dd>
+                    </dl>
+                </div>
+
+                <div class="year" id="personalYear7" style="display: none;">
+                    <h2>Personal Year 7:</h2>
+                    <p>This is a year of introspection, spiritual growth, and inner development. It's a good time to reflect on your life and goals.</p>
+                    <dl>
+                        <dt>Introspection:</dt>
+                        <dd>This is a period where you may feel the need to withdraw from the hustle and bustle of daily life to reflect on your goals, beliefs, and direction. It's a time to look inward and evaluate your life path.</dd>
+                        
+                        <dt>Spiritual Growth:</dt>
+                        <dd>Personal Year 7 often brings a heightened interest in spirituality, metaphysics, and the mysteries of life. You may find yourself drawn to meditation, yoga, or other spiritual practices that help you connect with your higher self.</dd>
+                        
+                        <dt>Analysis and Study:</dt>
+                        <dd>It's a good year for intellectual pursuits and deep study. You may feel a strong desire to learn new things, explore complex subjects, or engage in philosophical discussions.</dd>
+                        
+                        <dt>Solitude:</dt>
+                        <dd>Personal Year 7 can be a solitary period where you prefer spending time alone or in quiet, peaceful settings. This solitude allows for deep introspection and insights.</dd>
+                        
+                        <dt>Evaluation:</dt>
+                        <dd>This year encourages you to evaluate your past choices and experiences, seeking to understand the lessons they have taught you. It's a time to let go of what no longer serves your growth.</dd>
+                        
+                        <dt>Trust Your Intuition:</dt>
+                        <dd>Personal Year 7 heightens your intuition and inner wisdom. Pay attention to your gut feelings and inner guidance, as they can lead you in the right direction.</dd>
+                        
+                        <dt>Avoid Overthinking:</dt>
+                        <dd>While reflection is beneficial, be mindful of overanalyzing or becoming too detached from reality. Balance introspection with action and practicality.</dd>
+                    </dl>
+                </div>
+
+                <div class="year" id="personalYear8" style="display: none;">
+                    <h2>Personal Year 8:</h2>
+                    <p>This is a year of achievement, success, and abundance. It's a time to focus on your career and financial goals.</p>
+                    <dl>
+                        <dt>Career and Finances:</dt>
+                        <dd>This year often brings opportunities for advancement in your career or business. Financially, it's a time when you can reap rewards for your hard work, but it's also a time to be mindful of managing your finances wisely.</dd>
+                        
+                        <dt>Ambition and Drive:</dt>
+                        <dd>You may feel more ambitious and driven during this year, with a strong desire to succeed and achieve your goals. This can be a productive time for setting and pursuing ambitious targets.</dd>
+                        
+                        <dt>Leadership and Authority:</dt>
+                        <dd>Personal Year 8 can bring opportunities to step into leadership roles or to assert your authority in your field. It's a good time to take charge and make decisions with confidence.</dd>
+                        
+                        <dt>Material Success:</dt>
+                        <dd>This year is often associated with material success and the potential for financial gain. However, it's important to remember that true success also includes fulfillment in other areas of life, such as relationships and personal growth.</dd>
+                        
+                        <dt>Balance and Responsibility:</dt>
+                        <dd>While focusing on your goals and ambitions, it's important to maintain balance in your life and take responsibility for your actions. Avoid overworking or neglecting other important areas of your life.</dd>
+                        
+                        <dt>Karmic Influences:</dt>
+                        <dd>Personal Year 8 is sometimes seen as a karmic year, where you may experience the consequences of past actions, both positive and negative. It's a time to learn from your past experiences and make positive changes for the future.</dd>
+                    </dl>
+                </div>
+
+                <div class="year" id="personalYear9" style="display: none;">
+                    <h2>Personal Year 9:</h2>
+                    <p>This is a year of endings, completion, and humanitarianism. It's a good time to let go of what no longer serves you and prepare for new beginnings.</p>
+                    <dl>
+                        <dt>Completion:</dt>
+                        <dd>Personal Year 9 is a time to complete unfinished business and tie up loose ends. It's a good time to finish projects, relationships, or situations that have been lingering in your life.</dd>
+                        
+                        <dt>Reflection:</dt>
+                        <dd>This is a year for introspection and reflection. It's a good time to look back on your experiences over the past nine years and consider what you have learned and how you have grown.</dd>
+                        
+                        <dt>Release:</dt>
+                        <dd>Personal Year 9 is a time to let go of what no longer serves you. This may include old beliefs, habits, relationships, or possessions that are holding you back.</dd>
+                        
+                        <dt>Preparation:</dt>
+                        <dd>While Personal Year 9 is a time of endings, it's also a time of preparation for new beginnings. Use this year to clear space in your life for new opportunities and experiences that will come in the next cycle.</dd>
+                        
+                        <dt>Humanitarianism:</dt>
+                        <dd>Personal Year 9 is also associated with humanitarianism and service to others. It's a good time to focus on giving back to your community or getting involved in charitable activities.</dd>
+                        
+                        <dt>Emotional Intensity:</dt>
+                        <dd>This year can bring emotional intensity as you confront and release past issues. It's important to allow yourself to feel your emotions fully and to practice self-care during this time.</dd>
+                        
+                        <dt>Transition:</dt>
+                        <dd>Personal Year 9 marks a transition period between the end of one cycle and the beginning of the next. It's a time of change and transformation, and it's important to be open to new possibilities and opportunities that may come your way.</dd>
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    {% endblock %}
+
+    {% block script %}
+        var name = sessionStorage.getItem("name");
+        var birthdate = sessionStorage.getItem("birthdate");
+        var singleDigitDate = sessionStorage.getItem("singleDigitDate");
+        var singleCompleteDate = sessionStorage.getItem("singleCompleteDate");
+
+        document.getElementById("name1").textContent = name;
+        document.getElementById("birthdate1").textContent = birthdate;
+        document.getElementById("singleDigitDate1").textContent = singleDigitDate;
+
+        document.getElementById("name2").textContent = name;
+        document.getElementById("birthdate2").textContent = birthdate;
+        document.getElementById("singleCompleteDate2").textContent = singleCompleteDate;
+
+        document.getElementById("name3").textContent = name;
+        document.getElementById("birthdate3").textContent = birthdate;
+        document.getElementById("singleCompleteDate3").textContent = singleCompleteDate;
+        
+        {% if M == 'mulank' %}
+
+        document.getElementById('preinfo1').style.display = 'block'
+
+        switch (parseInt(singleDigitDate)) {
+            case 1:
+                applyStylesMulank("mulank1", "#ffd88f", "#dca1349d", "#ce6d339d");
+                break;
+
+            case 2:
+                applyStylesMulank("mulank2", "#c3e9e9", "rgb(98 161 158 / 62%)", "rgba(22, 107, 103, 0.616)");
+                break;
+
+            case 3:
+                applyStylesMulank("mulank3", "rgba(240, 144, 27, 0.862)", "rgb(193 129 52 / 86%)", "rgb(223 160 84 / 96%)");
+                break;
+
+            case 4:
+                applyStylesMulank("mulank4", "#8b7de1", "#8691db", "rgb(118 128 199)");
+                break;
+
+            case 5:
+                applyStylesMulank("mulank5", "rgb(96 233 92)", "rgb(94 193 90)", "rgb(112 223 108)");
+                break;
+
+            case 6:
+                applyStylesMulank("mulank6", "#e146e1", "rgb(193 102 193)", "rgb(165 66 165)");
+                break;
+
+            case 7:
+                applyStylesMulank("mulank7", "#9f4b4b", "#c35e5e", "#d76969");
+                break;
+
+            case 8:
+                applyStylesMulank("mulank8", "#222222", "rgb(72 66 66)", "rgb(100 94 94)");
+                break;
+
+            case 9:
+                applyStylesMulank("mulank9", "#dd0909", "#ed4848", "#d33131");
+                break;
+
+            default:
+                document.write("Something went wrong! Please try again.");
+        }
+
+        function applyStylesMulank(elementId, bgColorMain, bgColorDL, bgColorDD) {
+            var main = document.querySelector(".main");
+            var dlElements = document.querySelectorAll(".main dl");
+            var ddElements = document.querySelectorAll(".main dd");
+            
+            document.getElementById(elementId).style.display = "block";
+            
+            main.style.paddingLeft = "5%";
+            main.style.margin = "-0.5%";
+            main.style.backgroundColor = bgColorMain;
+            main.style.fontSize = "130%";
+
+            dlElements.forEach(function(dl) {
+                dl.style.backgroundColor = bgColorDL;
+                dl.style.padding = "10px";
+                dl.style.fontWeight = 700;
+            });
+
+            ddElements.forEach(function(dd) {
+                dd.style.backgroundColor = bgColorDD;
+                dd.style.padding = "10px";
+            });
+        }
+        
+        {% elif B == 'bhagyank'  %}
+
+        document.getElementById('preinfo2').style.display = 'block'
+
+        switch (parseInt(singleCompleteDate)) {
+            case 1:
+                applyStylesBhagyank("bhagyank1", "#ffd88f", "#dca1349d", "#ce6d339d");
+                break;
+
+            case 2:
+                applyStylesBhagyank("bhagyank2", "#c3e9e9", "rgb(98 161 158 / 62%)", "rgba(22, 107, 103, 0.616)");
+                break;
+
+            case 3:
+                applyStylesBhagyank("bhagyank3", "rgba(240, 144, 27, 0.862)", "rgb(193 129 52 / 86%)", "rgb(223 160 84 / 96%)");
+                break;
+
+            case 4:
+                applyStylesBhagyank("bhagyank4", "#8b7de1", "#8691db", "rgb(118 128 199)");
+                break;
+
+            case 5:
+                applyStylesBhagyank("bhagyank5", "rgb(96 233 92)", "rgb(94 193 90)", "rgb(112 223 108)");
+                break;
+
+            case 6:
+                applyStylesBhagyank("bhagyank6", "#e146e1", "rgb(193 102 193)", "rgb(165 66 165)");
+                break;
+
+            case 7:
+                applyStylesBhagyank("bhagyank7", "#9f4b4b", "#c35e5e", "#d76969", true);
+                break;
+
+            case 8:
+                applyStylesBhagyank("bhagyank8", "#222222", "rgb(72 66 66)", "rgb(100 94 94)");
+                break;
+
+            case 9:
+                applyStylesBhagyank("bhagyank9", "#dd0909", "#ed4848", "#d33131");
+                break;
+
+            default:
+                document.write("Something went wrong! Please try again.");
+        }       
+
+        function applyStylesBhagyank(elementId, bgColorMain, bgColorDL, bgColorDD) {
+            var main = document.querySelector(".main");
+            var dlElements = document.querySelectorAll(".main dl");
+            var ddElements = document.querySelectorAll(".main dd");
+            
+            document.getElementById(elementId).style.display = "block";
+            
+            main.style.paddingLeft = "5%";
+            main.style.margin = "-0.5%";
+            main.style.backgroundColor = bgColorMain;
+            main.style.fontSize = "130%";
+
+            dlElements.forEach(function(dl) {
+                dl.style.backgroundColor = bgColorDL;
+                dl.style.padding = "10px";
+                dl.style.fontWeight = 700;
+            });
+
+            ddElements.forEach(function(dd) {
+                dd.style.backgroundColor = bgColorDD;
+                dd.style.padding = "10px";
+            });
+        }
+
+        
+        {% else %}
+            document.getElementById('preinfo3').style.display = 'block'
+
+            switch (parseInt(singleCompleteDate)) {
+                case 1:
+                    applyStylespersonalYear("personalYear1", "#ffd88f", "#dca1349d", "#ce6d339d");
+                    break;
+
+                case 2:
+                    applyStylespersonalYear("personalYear2", "#c3e9e9", "rgb(98 161 158 / 62%)", "rgba(22, 107, 103, 0.616)");
+                    break;
+                    
+                case 3:
+                    applyStylespersonalYear("personalYear3", "rgba(240, 144, 27, 0.862)", "rgb(193 129 52 / 86%)", "rgb(223 160 84 / 96%)");
+                    break;
+                    
+                case 4:
+                    applyStylespersonalYear("personalYear4", "#8b7de1", "#8691db", "rgb(118 128 199)");
+                    break;
+                
+                case 5:
+                    applyStylespersonalYear("personalYear5", "rgb(96 233 92)", "rgb(94 193 90)", "rgb(112 223 108)");
+                    break;
+
+                case 6:
+                    applyStylespersonalYear("personalYear6", "#e146e1", "rgb(193 102 193)", "rgb(165 66 165)");
+                    break;
+
+                case 7:
+                    applyStylespersonalYear("personalYear7", "rgb(211 108 108)", "#c35e5e", "#d76969");
+                    break;
+
+                case 8:
+                    applyStylespersonalYear("personalYear8", "#222222", "rgb(72 66 66)", "rgb(100 94 94)");
+                    break;
+
+                case 9:
+                    applyStylespersonalYear("personalYear9", "#dd0909", "#ed4848", "#d33131");
+                    break;
+
+                default:
+                    document.write("Something went wrong! Please try again.");
+            }
+
+            function applyStylespersonalYear(elementId, bgColorMain, bgColorDL, bgColorDD) {
+                var main = document.querySelector(".main");
+                
+                var dlElements = document.querySelectorAll(".main dl");
+                var dtElements = document.querySelectorAll(".main dt");
+                var ddElements = document.querySelectorAll(".main dd");
+                
+                document.getElementById(elementId).style.display = "block";
+                
+                main.style.paddingLeft = "5%";
+                main.style.margin = "-0.5%";
+                main.style.backgroundColor = bgColorMain;
+                main.style.fontSize = "130%";
+
+                
+                dlElements.forEach(function(dl) {
+                    dl.style.backgroundColor = bgColorDL;
+                    dl.style.padding = "10px";
+                });
+                
+                dtElements.forEach(function(dt) {
+                    dt.style.backgroundColor = bgColorDL;
+                    dt.style.padding = "20px";
+                    dt.style.fontWeight = 700;
+                });
+
+                ddElements.forEach(function(dd) {
+                    dd.style.backgroundColor = bgColorDD;
+                    dd.style.padding = "10px";
+                });
+            }
+
+
+        {% endif %}
+    
+
+{% endblock %}

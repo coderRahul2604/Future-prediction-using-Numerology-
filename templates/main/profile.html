@@ -1,0 +1,12 @@
+<!-- profile.html -->
+<h2>Welcome, {{ user.username }}</h2>
+<p>Your current status is: {{ user.profile.status }}</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="status">Change Status:</label>
+    <select name="status" id="status">
+        <option value="writer" {% if user.profile.status == 'writer' %} selected {% endif %}>Writer</option>
+        <option value="reader" {% if user.profile.status == 'reader' %} selected {% endif %}>Reader</option>
+    </select>
+    <input type="submit" value="Save">
+</form>

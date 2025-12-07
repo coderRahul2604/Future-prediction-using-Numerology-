@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{%block title%} About {%endblock%}
+
+{%block style%}
+<style>
+    /* CSS code for animated style */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      padding: 1rem 2rem;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+{%endblock%}
+{%block content%}
+
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Welcome to our website! We are a team of dedicated professionals...</p>
+        <button class="button">Learn More</button>
+    </div>
+
+{% endblock %}
+
+
+{% block script %}
+
+{%endblock%}

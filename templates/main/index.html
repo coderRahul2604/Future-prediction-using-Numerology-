@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">
+        <h1>Future Prediction</h1>
+      </div>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/future/">Future</a>
+        </li>
+        <li>
+          <a href="/blog/">Blog</a>
+        </li>
+        <li>
+          <a href="/about/">About</a>
+        </li>
+        <li>
+          <a href="/contact/">Contact</a>
+        </li>
+        {% if user.is_authenticated %}
+          <li>
+            <a href="/blog/logout/">Logout</a>
+          </li>
+          <li>
+            <a href="/profile/">{{ user.username }}</a>
+          </li>
+        {% else %}
+          <li>
+            <a href="/cred/">Login</a>
+          </li>
+          <li>
+            <a href="/cred/">Signup</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% for message in messages %}
+    <div class="alert {{message.tags}}">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Message: </strong> {{message}}
+    </div>
+    {% endfor %}
+    <div class="video-container">
+      <video class="video-layer" autoplay loop muted>
+        <source src=" {% static 'video/goldanwall.mp4' %}" type="video/mp4" />
+      </video>
+
+      <div class="abc1">
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+        <div class="number">6</div>
+        <div class="number">7</div>
+        <div class="number">8</div>
+        <div class="number">9</div>
+      </div>
+
+      <div class="abc2">
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+        <div class="number">6</div>
+        <div class="number">7</div>
+        <div class="number">8</div>
+        <div class="number">9</div>
+      </div>
+
+      <div class="abc3">
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+        <div class="number">6</div>
+        <div class="number">7</div>
+        <div class="number">8</div>
+        <div class="number">9</div>
+      </div>
+
+      <div class="text" style="position: relative; top: 40%; left: 15%; color: rgb(243,213,145);
+    font-size: 50px;">
+        <h1>Let's Find Your Destiny</h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="content">
+        <div class="indexparagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquam ultrices, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc.</div>
+        <div>
+          <img src="{% static 'photo/col/1.jpg' %}" alt="img" class="indeximage" />
+        </div>
+        <div>
+          <img src="{% static 'photo/col/1.jpg' %}" alt="img" class="indeximage" />
+        </div>
+
+        <div class="indexparagraph">Sed euismod, nunc id aliquam ultrices, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+
+        <div class="indexparagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquam ultrices, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc.</div>
+        <div>
+          <img src="{% static 'photo/col/1.jpg' %}" alt="Image 1" class="indeximage" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const numbers = document.querySelectorAll('.number')
+      const videoContainer = document.querySelector('.video-container')
+      var video = document.querySelector('video')
+      video.playbackRate = 0.5
+      
+      numbers.forEach((number) => {
+        const containerWidth = videoContainer.offsetWidth
+        const containerHeight = videoContainer.offsetHeight
+      
+        const x = Math.random() * (containerWidth - 100) + 100
+        const y = Math.random() * (containerHeight - 100) + 100
+        const fontSize = Math.floor(Math.random() * 300)
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
+        number.style.fontSize = `${fontSize}%`
+        number.style.left = `${x}px`
+        number.style.top = `${y}px`
+        number.style.color = randomColor
+      })
+      
+        
+    </script>
+  </body>
+</html>

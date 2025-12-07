@@ -1,0 +1,438 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{%block title%} Number information {%endblock%}
+
+{%block style%}
+
+    <link rel="stylesheet" href="{% static 'css/future/numberinfo.css'%}">
+    
+    <style>
+        .main {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 60%;
+        }
+    
+        .preinfo {
+            margin-left: -35%;
+        }
+    
+        .grid,
+        .futureGrid {
+            margin-top: 20px;
+            border-collapse: collapse;
+            margin: 10px;
+            display: inline-block;
+        }
+    
+        .grid .row,
+        .futureGrid .row {
+            height: 40px;
+        }
+    
+        .grid .col,
+        .futureGrid .col {
+            width: 150px;
+            height: 10vh;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+    
+        .presence, .absence, .repetition {
+            margin-top: 5%;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    
+        .presencehead, .absencehead, .repetitionhead {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    
+        .number, .absencenumber {
+            margin-bottom: 20px;
+        }
+    
+    
+        .number h2, .absencenumber h2, .repetitionhead h2{
+            color: #555;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    
+    
+        .number p {
+            color: #777;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+
+{%endblock%}
+
+{%block content%}
+
+    <div class="main" style="padding: 10px;">
+        <div class="preinfo">
+            <h1> According to provided information </h1>
+            <p>Name: <span id="name"></span></p>
+            <p>Birthdate: <span id="birthdate"></span></p>
+            <p>Mulank: <span id="singleDigitDate"></span></p>
+            <p>Bhagyank: <span id="singleCompleteDate"></span></p>
+            <p>Name Calculation: <span id="calculatedName"></span></p>
+            
+        </div>
+        <br>
+
+        <table class="futureGrid" id="futureGrid">
+            <tbody>
+                <tr class="row">
+                    <td class="col"></td>
+                    <td class="col"></td>
+                    <td class="col"></td>
+                </tr>
+                <tr class="row">
+                    <td class="col"></td>
+                    <td class="col"></td>
+                    <td class="col"></td>
+                </tr>
+                <tr class="row">
+                    <td class="col"></td>
+                    <td class="col"></td>
+                    <td class="col"></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="loshoNumber">
+            <div class="presence" id="presence">
+                <h2 class="presencehead">Numbers which are present in your grid</h2>
+            
+                <div class="number" id="number1" style="display: none;">
+                    <h2>Number 1</h2>
+                    <p><strong>Presence:</strong> Represents leadership and new beginnings. Its presence signifies leadership
+                        qualities and the start of a new phase or project.</p>
+                </div>
+            
+                <div class="number" id="number2" style="display: none;">
+                    <h2>Number 2</h2>
+                    <p><strong>Presence:</strong> Symbolizes balance and partnerships. Its presence indicates a need for harmony and
+                        cooperation in relationships.</p>
+                </div>
+            
+                <div class="number" id="number3" style="display: none;">
+                    <h2>Number 3</h2>
+                    <p><strong>Presence:</strong> Represents creativity and communication. Its presence suggests a creative and
+                        expressive environment.</p>
+                </div>
+
+                <div class="number" id="number4" style="display: none;">
+                    <h2>Number 4</h2>
+                    <p><strong>Presence:</strong> Signifies stability and organization. Its presence suggests a stable and
+                        well-organized situation.</p>
+                </div>
+
+                <div class="number" id="number5" style="display: none;">
+                    <h2>Number 5</h2>
+                    <p><strong>Presence:</strong> Symbolizes freedom and change. Its presence suggests a need for flexibility and
+                        adaptability.</p>
+            
+                </div>
+
+                <div class="number" id="number6" style="display: none;">
+                    <h2>Number 6</h2>
+                    <p><strong>Presence:</strong> Signifies harmony and responsibility. Its presence suggests a harmonious and
+                        responsible environment.</p>
+                </div>
+
+                <div class="number" id="number7" style="display: none;">
+                    <h2>Number 7</h2>
+                    <p><strong>Presence:</strong> Represents spirituality and introspection. Its presence suggests a spiritual or
+                        reflective environment.</p>
+                </div>
+
+                <div class="number" id="number8" style="display: none;">
+                    <h2>Number 8</h2>
+                    <p><strong>Presence:</strong> Symbolizes success and abundance. Its presence suggests a potential for success
+                        and abundance.</p>
+                </div>
+
+                <div class="number" id="number9" style="display: none;">
+                    <h2>Number 9</h2>
+                    <p><strong>Presence:</strong> Signifies completion and humanitarianism. Its presence suggests a completion of a
+                        cycle and a focus on humanitarian efforts.</p>
+                </div>
+            </div>
+
+            <div class="absence" id="absence">
+
+                <h2 class="absencehead">Numbers which are present in your grid</h2>
+                <div class="number" id="absencenumber1" style="display: none;">
+                    <h2>Number 1</h2>
+                    <p><strong>Absence:</strong> Its absence may indicate a lack of leadership or a difficulty in initiating new projects.</p>
+                </div>
+            
+                <div class="number" id="absencenumber2" style="display: none;">
+                    <h2>Number 2</h2>
+                    <p><strong>Absence:</strong> Its absence may suggest challenges in maintaining harmony and balance in relationships.</p>
+                </div>
+            
+                <div class="number" id="absencenumber3" style="display: none;">
+                    <h2>Number 3</h2>
+                    <p><strong>Absence:</strong> Its absence may indicate a lack of creativity or challenges in communication.</p>
+                </div>
+                <div class="number" id="absencenumber4" style="display: none;">
+                    <h2>Number 4</h2>
+                    <p><strong>Absence:</strong> Its absence may indicate instability or a lack of organization.</p>
+                </div>
+                <div class="number" id="absencenumber5" style="display: none;">
+                    <h2>Number 5</h2>
+                    <p><strong>Absence:</strong> Its absence may indicate resistance to change or a lack of freedom.</p>
+            
+                </div>
+                <div class="number" id="absencenumber6" style="display: none;">
+                    <h2>Number 6</h2>
+                    <p><strong>Absence:</strong> Its absence may indicate discord or a lack of responsibility.
+                    </p>
+                </div>
+                <div class="number" id="absencenumber7" style="display: none;">
+                    <h2>Number 7</h2>
+                    <p><strong>Absence:</strong> Its absence may indicate a lack of spiritual connection or introspection.
+                        </p>
+                </div>
+                <div class="number" id="absencenumber8" style="display: none;">
+                    <h2>Number 8</h2>
+                    <p><strong>Absence:</strong> Its absence may indicate challenges in achieving success or a lack of abundance.</p>
+                </div>
+                <div class="number" id="absencenumber9" style="display: none;">
+                    <h2>Number 9</h2>
+                    <p><strong>Absence:</strong> Its absence may indicate unfinished business or a lack of concern for others.</p>
+                </div>
+            </div>
+
+            <div class="repetition" id="repetition">
+                <h2 class="repetitionhead">Repetition of number</h2>
+                <p class="reptext">Repetition of any number just increses effect.</p>
+            </div>
+        
+        </div>
+
+
+        <table class="grid" id="grid">
+            <tbody>
+                <tr class="row">
+                    <td class="col">
+                        <span class="number">4</span> <br> 
+                        <span class="numtext">Stability, organization, and hard work</span></td>
+
+                    <td class="col">
+                        <span class="number">9</span> <br> 
+                        <span class="numtext">Completion, humanitarianism, and universal love</span></td>
+
+                    <td class="col">
+                        <span class="number">2</span> <br> 
+                        <span class="numtext">Balance, harmony, and diplomacyalance</span></td>
+                </tr>
+                <tr class="row">
+                    <td class="col">
+                        <span class="number">3</span> <br> 
+                        <span class="numtext">Creativity, communication, and self-expression</span></td>
+                    <td class="col">
+                        <span class="number">5</span> <br> 
+                        <span class="numtext">Freedom, adventure, and versatility</span></td>
+                    <td class="col">
+                        <span class="number">7</span> <br> 
+                        <span class="numtext">Spirituality, intuition, and inner wisdom</span></td>
+                </tr>
+                <tr class="row">
+                    <td class="col">
+                        <span class="number">8</span> <br> 
+                        <span class="numtext">Success, abundance, and prosperity</span></td>
+                    <td class="col">
+                        <span class="number">1</span> <br> 
+                        <span class="numtext">Leadership, independence, and new beginnings.</span></td>
+                    <td class="col">
+                        <span class="number">6</span> <br> 
+                        <span class="numtext">Harmony, balance, and nurturing</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    {% endblock %}
+    {% block script %}
+    
+    var name = sessionStorage.getItem("name");
+    var birthdate = sessionStorage.getItem("birthdate");
+    var singleDigitDate = sessionStorage.getItem("singleDigitDate");
+    var singleCompleteDate = sessionStorage.getItem("singleCompleteDate");
+
+
+    document.getElementById("name").textContent = name;
+    document.getElementById("birthdate").textContent = birthdate;
+    document.getElementById("singleDigitDate").textContent = singleDigitDate;
+    document.getElementById("singleCompleteDate").textContent = singleCompleteDate;
+    
+
+    //name calculation.
+    function calculateNameValue(name) {
+        var nameValue = 0;
+        var letterValues = {
+            'A': 1, 'I': 1, 'J': 1, 'Q': 1, 'Y': 1,
+            'B': 2, 'K': 2, 'R': 2,
+            'C': 3, 'G': 3, 'L': 3, 'S': 3,
+            'D': 4, 'M': 4, 'T': 4,
+            'E': 5, 'H': 5, 'N': 5, 'Y': 5,
+            'U': 6, 'V': 6, 'W': 6,
+            'O': 7, 'Z': 7,
+            'F': 8, 'P': 8
+        };
+    
+        for (var i = 0; i < name.length; i++) {
+            var letter = name[i].toUpperCase();
+            if (letter in letterValues) {
+                nameValue += letterValues[letter];
+            }
+        }
+    
+        // Reduce the name value to a single digit
+        while (nameValue > 9) {
+            var sum = 0;
+            while (nameValue > 0) {
+                sum += nameValue % 10;
+                nameValue = Math.floor(nameValue / 10);
+            }
+            nameValue = sum;
+        }
+    
+        return nameValue;
+    }
+    
+    calculatedName = calculateNameValue(name)
+    document.getElementById("calculatedName").textContent = calculatedName;
+
+    // Add digits to the existing grid
+    var originalGrid = document.getElementById("grid");
+    var digitGrid = document.getElementById("futureGrid");
+    var digits = birthdate.split('').concat(singleDigitDate, singleCompleteDate);
+
+    var rowsOriginal = originalGrid.querySelectorAll("tr");
+    var rowsDigit = digitGrid.querySelectorAll("tr");
+
+    for (var i = 0; i < rowsOriginal.length; i++) {
+        var colsOriginal = rowsOriginal[i].getElementsByTagName("td");
+        var colsDigit = rowsDigit[i].getElementsByTagName("td");
+
+        for (var j = 0; j < colsOriginal.length; j++) {
+            // Select the first span inside the current td
+            var currentDigit = colsOriginal[j].querySelector("span").textContent;
+
+            // Find all occurrences of the digit in the digits array
+            var occurrences = digits.reduce(function (count, digit) {
+                return digit === currentDigit ? count + 1 : count;
+            }, 0);
+
+            // Add all occurrences to the digitGrid
+            colsDigit[j].textContent = currentDigit.repeat(occurrences);
+
+            if (parseInt(currentDigit) === calculatedName) {
+                colsDigit[j].textContent += calculatedName;
+            }
+        }
+    }
+    
+
+    var numberCounts = {};
+    for (var i = 0; i < digits.length; i++) {
+        var digit = digits[i];
+        if (digit in numberCounts) {
+            numberCounts[digit]++;
+        } else {
+            numberCounts[digit] = 1;
+        }
+    }
+
+    console.log(numberCounts)
+
+    var rows = digitGrid.getElementsByTagName("tr");
+
+    for (var i = 0; i < rows.length; i++) {
+        var cols = rows[i].getElementsByTagName("td");
+        for (var j = 0; j < cols.length; j++) {
+            var value = cols[j].textContent.trim();
+            
+            if (value !== "") {
+                var searchDigit = parseInt(value.charAt(0));
+
+                switch (searchDigit) {
+                    case 4:
+                    case 9:
+                    case 2:
+                        document.getElementById("number" + searchDigit).style.display = "block";
+                        break;
+                    case 3:
+                    case 5:
+                    case 7:
+                        document.getElementById("number" + searchDigit).style.display = "block";
+                        break;
+                    case 8:
+                    case 1:
+                    case 6:
+                        document.getElementById("number" + searchDigit).style.display = "block";
+                        break;
+                }  
+
+            }
+    
+        }
+    }
+
+    for (var i = 0; i < rowsOriginal.length; i++) {
+        var colsOriginal = rowsOriginal[i].getElementsByTagName("td");
+        var colsDigit = rowsDigit[i].getElementsByTagName("td");
+    
+        for (var j = 0; j < colsOriginal.length; j++) {
+            var originalCol = colsOriginal[j];
+            var futureCol = colsDigit[j];
+    
+            var originalDigit = originalCol.querySelector("span").textContent;
+            var futureDigits = futureCol.textContent.trim();
+    
+            if (futureDigits === "") {
+                var searchDigit = parseInt(originalDigit);
+    
+                switch (searchDigit) {
+                    case 4:
+                    case 9:
+                    case 2:
+                        document.getElementById("absencenumber" + searchDigit).style.display = "block";
+                        break;
+                    case 3:
+                    case 5:
+                    case 7:
+                        document.getElementById("absencenumber" + searchDigit).style.display = "block";
+                        break;
+                    case 8:
+                    case 1:
+                    case 6:
+                        document.getElementById("absencenumber" + searchDigit).style.display = "block";
+                        break;
+                }
+            }
+        }
+    }
+
+    {% endblock %}
+
+
+

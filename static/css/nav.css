@@ -1,0 +1,141 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: Arial, sans-serif;
+}
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  background-color: #ffeede;
+  padding: 10px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 2%;
+  float: left;
+}
+
+.logo h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.menus {
+  display: flex;
+  align-items: center;
+  padding-left: 20%;
+  width: 350%;
+  float: right;
+}
+
+ul {
+  width: 75%;
+  display: flex;
+  padding: 20%;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  display: inline;
+  margin-right: 5%;
+}
+
+nav a, li button {
+  text-decoration: none;
+  color: #333;
+}
+
+li button{
+  font-size: inherit;
+}
+
+.credentials {
+  height: 0;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.loginBox,
+.signupBox {
+  width: 30%;
+  margin: 0 auto;
+  background-color: #e8e8e8;
+  padding: 20px;
+  border: 1px solid #ccc;
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateY(-50%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.login, .signup{
+  background-color: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.credform {
+  margin-bottom: 20px;
+}
+
+.credHead {
+  margin-top: 0;
+}
+
+.X {
+  float: right;
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.credbtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.credbtn:hover {
+  background-color: #555;
+}
+
+nav, ul li a {
+  color: orange;
+}
+
+footer {
+  width: 100%;
+  height: 20vh;
+  background-color: rgba(18, 18, 18, 0.895);
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+}
