@@ -1,0 +1,81 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Calculation {% endblock %}
+
+{% block style%}
+    <link rel="stylesheet" href="{% static 'css/future/dateInfo.css'%}">
+{% endblock %}
+
+{% block content %}
+ <div class="main">
+        <form action="numberinfo5/" method="post" id="form1">
+        {% csrf_token %}
+            <div class="numform">
+                
+                <h2>Let's find out the future </h2>
+                <br>
+                <label>Enter your name</label>
+                <input type="text" name="name" id="name" placeholder="Enter name" required>
+
+                <label>Enter your Birthdate</label>
+                <input type="date" name="birthdate" id="birthdate" required>
+                <br>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+{% block script %}
+function calculateSingleDigit(date) {
+        var components = date.split("-");
+        var day = parseInt(components[2]);
+        var month = parseInt(components[1]);
+        var year = parseInt(components[0]);
+
+        var total = day;
+        while (total > 9) {
+            total = total.toString().split('').map(Number).reduce((a, b) => a + b, 0);
+        }
+        return total;
+    }
+    function calculateCompleteDate(date) {
+        var components = date.split("-");
+        var day = parseInt(components[2]);
+        var month = parseInt(components[1]);
+        var year = parseInt(components[0]);
+
+        var total = day + month ;
+        if(total === 11){
+            pass
+        }
+        else{
+            while (total > 9) {
+                total = total.toString().split('').map(Number).reduce((a, b) => a + b, 0);
+            }
+        }
+        return total;
+    }
+
+    document.getElementById("form1").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        var name = document.getElementById("name").value;
+        var birthdate = document.getElementById("birthdate").value;
+
+        // Calculate single-digit representation of the birthdate
+        var singleDigitDate = calculateSingleDigit(birthdate);
+        var calculated_Date = calculateCompleteDate(birthdate); // Pass the birthdate here
+
+        // Store data in sessionStorage
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("birthdate", birthdate);
+        sessionStorage.setItem("singleDigitDate", singleDigitDate);
+        sessionStorage.setItem("singleCompleteDate", calculated_Date);
+
+        window.location.href = "numberinfo5/";
+    });
+
+{% endblock %}

@@ -1,0 +1,33 @@
+body{
+    background-color: blanchedalmond;
+}
+.numform{
+    display: flex;
+    flex-direction: column;
+    width: 120%;
+    margin-top: 50px;
+    margin-left: -10px;
+    margin-bottom: 12%;
+    padding: 50px;
+    border: 1px solid black;
+}
+form{
+    margin:auto auto;
+    width: 30%;
+}
+form h2{
+    text-align: center;
+}
+label{
+    margin: 3px 0px;
+}
+input[type="text"], input[type="date"], input[type="submit"]{
+    height: 4vh;
+    padding: 1%;
+}
+input[type="submit"]{
+    cursor: pointer;
+    height: 6vh;
+    background-color: #ff722c;
+    border: none;
+}

@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    {% block style%}
+
+
+    {% endblock %}
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <h1>Future Prediction</h1>
+    </div>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/future/">Future</a>
+      </li>
+      <li>
+        <a href="/blog/">Blog</a>
+      </li>
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      <li>
+        <a href="/contact/">Contact</a>
+      </li>
+      {% if user.is_authenticated %}
+        <li>
+          <a href="/blog/logout/">Logout</a>
+        </li>
+        <li>
+          <a href="/profile/">{{ user.username }}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="/cred/">Login/Signup</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+      {% for message in messages %}
+      <div class="alert {{message.tags}}">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>Message: </strong> {{message}}
+      </div>
+      {% endfor %}
+    
+      <div class="credentials">
+
+      <div class="loginBox" id="login" style="display: none;">
+        <form class="credform" action="/blog/login/" method="post">
+            {% csrf_token %}
+            <span class="X" onclick="displayHide(this.parentElement.parentElement);">&times;</span>
+            <h2 class="credHead">Login</h2>
+            <div class="password-toggle">
+                {{ login_form.as_p }}
+            </div>
+            <input type="submit" class="credbtn" name="login" id="loginbtn" value="Login">
+            
+        </form>
+      </div>
+
+    <div class="signupBox" id="signup" style="display: none;">
+        <form method="post" action="/blog/signup/">
+            {% csrf_token %}
+            <span class="X" onclick="displayHide(this.parentElement.parentElement);">&times;</span>
+            <h2 class="credHead">Signup</h2>
+            <div class="password-toggle">
+                {{ signup_form.as_p }}
+            </div>
+            <input type="submit" class="credbtn" name="signup" id="signupbtn" value="Signup">
+        </form>
+    </div>
+
+    </div>
+    {% block content %}
+
+
+
+    {% endblock %}
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Your Website. All rights reserved-2024</p>
+        </div>
+    </footer>
+    <script>
+        {% block script %}
+        {% endblock %}
+    </script>
+
+</body>
+
+</html>

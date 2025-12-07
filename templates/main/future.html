@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{%block title%}Future finding page{% endblock%}  
+
+{% block style%}
+    <link rel="stylesheet" href="{% static 'css/future/future.css' %}">
+    
+{%endblock%}
+{% block content%} 
+    <div class="futurecontainer" style="display: grid; grid-template-columns: auto auto auto; margin: 2% 5% 2% 5%;">
+    
+        <a href="dateInfo1/">
+    
+            <div class="box 1" id="box1">
+                <img src="{% static 'photo/col/1.jpg' %}" alt="error">
+                <p class="imgtext">Personality Numbers</p>
+            </div>
+        </a>
+        <a href="dateInfo2/">
+    
+            <div class="box 2" id="box2">
+                <img src="{% static 'photo/col/1.jpg' %}" alt="error">
+                <p class="imgtext">Destiny Number</p>
+            </div>
+        </a>
+        <a href="dateInfo3/">
+    
+            <div class="box 3" id="box3">
+                <img src="{% static 'photo/col/1.jpg' %}" alt="error">
+                <p class="imgtext">Personal year</p>
+            </div>
+        </a>
+        <a href="dateInfo4">
+    
+            <div class="box 4" id="box4">
+                <img src="{% static 'photo/col/1.jpg' %}" alt="error">
+                <p class="imgtext">Lo Shu Grid</p>
+            </div>
+        </a>
+        <a href="#">
+    
+            <div class="box 5" id="box5">
+                <img src="{% static 'photo/col/1.jpg' %}" alt="error">
+                <p class="imgtext">Soul Urge Number</p>
+            </div>
+        </a>
+        <a href="#">
+    
+            <div class="box 6" id="box1">
+                <img src="{% static 'photo/col/1.jpg' %}" alt="error">
+                <p class="imgtext">Name Calculation </p>
+            </div>
+        </a>
+    </div>
+{% endblock %}
+
+{% block script%}
+    
+{%endblock%}
+
+</html>

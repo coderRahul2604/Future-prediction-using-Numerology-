@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #feffc8;
+}
+.futurecontainer {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.futurecontainer a{
+    color: black;
+    text-decoration: none;
+}
+.imgtext{
+    margin: 5%;
+}
